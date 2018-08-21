@@ -1,14 +1,14 @@
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+const mongoose = require("mongoose");
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI);
-
-var PORT = process.env.PORT || 3000;
-var express = require('express');
-var exphbs = require('express-handlebars');
+const PORT = process.env.PORT || 3000;
+const express = require('express');
+const exphbs = require('express-handlebars');
 
 
-var app = express();
+const app = express();
 
 app.use(express.static("public"))
 app.engine('.hbs', exphbs({
@@ -18,7 +18,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.listen(PORT, function(){
-    console.log(`app listening on localhost:`)
+    console.log(`app listening on localhost:${PORT}`)
 })
 
 app.get("/", function(req, res){
