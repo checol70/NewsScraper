@@ -1,0 +1,17 @@
+<li>
+
+    <h3>
+        {{title}}
+    </h3>
+
+    <a href="{{link}}">
+        {{link}}
+    </a>
+    {{!-- <p>{{summary}}</p> --}}
+    {{#each note}} 
+        {{>article/note}}    
+    {{/each}}
+        <input type="text" id="title{{_id}}">
+        <input type="text" id="body{{_id}}">
+        <button class="add-note" data-id={{_id}}>Add Note</button>
+</li>
