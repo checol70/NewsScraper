@@ -1,17 +1,30 @@
-<li>
-
+<div class="border rounded row m-3 p-2 diffback">
     <h3>
         {{title}}
     </h3>
 
-    <a href="{{link}}">
+
+    <a href="{{link}}" target="_blank" class="col-12">
         {{link}}
     </a>
     {{!-- <p>{{summary}}</p> --}}
     {{#each note}} 
         {{>article/note}}    
     {{/each}}
-        <input type="text" id="title{{_id}}">
-        <input type="text" id="body{{_id}}">
-        <button class="add-note" data-id={{_id}}>Add Note</button>
-</li>
+    <br>
+    <div class="container">
+
+    <div class="row">
+        <input type="text"class="col-md-6 col-s-8" id="title{{_id}}">
+    </div>
+        <br>
+        <div class="row">
+        <textarea id="body{{_id}}"class="col-md-6 col-s-8"></textarea>
+
+        </div>
+        <div class="row">
+
+        <button class="add-note m-2" data-id={{_id}}>Add Note</button>
+        </div>
+    </div>
+</div>
