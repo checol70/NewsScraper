@@ -1,10 +1,13 @@
-
-$("#scrape").on("click", function(){
-    $.ajax("/scrape",{
-        method: "GET"
-    }).then(function(){
-        location.reload();
-    })
+var waiting = false;
+$(".scrape").on("click", function(){
+    if(!waiting){
+        waiting = true;
+        $.ajax("/scrape",{
+            method: "GET"
+        }).then(function(){
+            location.reload();
+        })
+    }
 })
 $(".add-note").on("click", function(){
     var id = $(this).attr("data-id")
